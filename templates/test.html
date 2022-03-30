@@ -1,0 +1,1683 @@
+<style>
+    .SeatPage{
+    width:100%;
+    height:100%;
+    padding-left:550px;
+    padding-top:50px;
+}
+
+/* CSS */
+.button-back{
+  background-color:#FF0000;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 300;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 30%;
+  max-width: 200px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-back:focus {
+  outline: 0;
+}
+
+.button-back:after {
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.button-back:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-53 {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+
+
+
+
+
+/* CSS */
+.button-submit {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson,Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-submit:before {
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #00FFA1;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-submit:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-submit:after {
+  background-color:#7F7F7F ;
+}
+
+.button-submit span {
+  z-index: 1;
+  position: relative;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 text-sm">
+            <div class="site-info">
+              <a href="#"  style="color: white;"><span class="mai-call text-primary"></span> </a>
+              <span class="divider"  style="color: white;">|</span>
+              <a href="#" style="color: white;"><span class="mai-mail text-primary"></span></a>
+            </div>
+          </div>
+          <div class="col-sm-4 text-right text-sm">
+            <div class="social-mini-button">
+              <a href="#"><span class="mai-logo-facebook-f"></span></a>
+              <a href="#"><span class="mai-logo-twitter"></span></a>
+              <a href="#"><span class="mai-logo-dribbble"></span></a>
+              <a href="#"><span class="mai-logo-instagram"></span></a>
+            </div>
+          </div>
+        </div> <!-- .row -->
+      </div> <!-- .container -->
+    </div> <!-- .topbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span  style="color: #d53239;">Airline</span>Reservation</a>
+    
+            <!-- <form action="#">
+              <div class="input-group input-navbar">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+                </div>
+              </div>
+            </form> -->
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    <form  action="" method="post">
+            <div class="collapse navbar-collapse" id="navbarSupport">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="explore">Explore</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="purchaseRecord">My Bookings</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="chatbot">Chatbot</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-2x fa-user "></i> {{username}}
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Sign Out</a>
+                    </li>
+                
+               
+              </ul>
+            </div> <!-- .navbar-collapse -->
+        </form>
+          </div> <!-- .container -->
+    </nav>
+  </header>
+
+
+
+<div class="SeatPage">
+
+<button class="button-back"  role="button" type="button" onclick="back()">Back</button>
+<div class="container-seat">
+  <label for="email">Name:</label>
+  <input type="text" id="email" value="{{email}}"disabled>
+  <label for="id">Ticket ID:</label>
+  <input type="text" id="id" value="{{getid}}"disabled>
+  <label for="location">From :</label>
+<input type="text" id="location" value="{{location}}"disabled>
+
+  <label for="destination">Destination : </label>
+  <input type="text" id="destination" value="{{destination}}"disabled>
+
+  <label for="ArrivalDate">Arrival Date : </label>
+  <input type="text" id="ArrivalDate" value="{{ArrivalDate}}"disabled>
+
+    <label for="DepartureDate">Flight DepartureDate :</label>
+<input type="text" id="DepartureDate" value="{{DepartureDate}}"disabled>
+
+  <table id="class">
+  <tr>
+      <th>Business Class</th>
+      <th><button class="button" onclick="eco()">Economy Class</button></th>
+
+  </tr>
+</table>
+
+    <ul class="showcase">
+
+      <li>
+        <div class="seat"></div>
+        <small>N/A</small>
+      </li>
+
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+
+      <li>
+        <div class="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
+    </ul>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat "></div>
+        <div class="seat "></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat "></div>
+        <div class="seat "></div>
+        <div class="seat "></div>
+        <div class="seat"></div>
+      </div>
+    </div>
+
+<p style=" color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 20px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: left; text-transform: uppercase;"id="demo">Total Seat</p>
+<button  id="submit" class="button-submit"  role="button"><span class="text">Comfirm</span></button>
+
+    </div>
+
+
+
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+<script>function back(){window.location='/time_table';}</script>
+<script>function eco(){window.location='/buy_ticket';}</script>
+<script type="module">
+var id = document.getElementById("id").value;
+var email= document.getElementById("email").value;
+var location= document.getElementById("location").value;
+var destination= document.getElementById("destination").value;
+var ArrivalDate= document.getElementById("ArrivalDate").value;
+var DepartureDate= document.getElementById("DepartureDate").value;
+
+console.log(id);
+let totalprice=0;
+let seats1=[];
+let oseat=[];
+let click=0;
+
+
+     const seat_container=document.querySelector('.container-seat');
+     const seats = document.querySelectorAll('.row .seat:not(.selected');
+     const oseats= document.querySelectorAll('.row .seat:not(.occupied');
+
+     function occupiedSeats(){
+
+     console.log(oseat);
+     oseats.forEach((seat,index)=>{
+     if(oseat.indexOf(index)>-1){
+     seat.classList.add('occupied');
+     }
+
+     });
+     const occupiedseat=document.querySelectorAll('.row .seat.occupied');
+     const occupiedIndex=[...occupiedseat].map(function(seat){
+      return [...oseats].indexOf(seat);
+     });
+     console.log(occupiedIndex)
+     }
+
+
+     function updateSelectedCount(){
+      price1();
+     seats1=[];
+
+     const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+     const selectedIndex=[...selectedSeats].map(function(seat){
+     return [...seats].indexOf(seat);
+     });
+
+
+     const totalselected=selectedSeats.length;
+     console.log(totalselected);
+     for(let i=0;i<totalselected;i++){
+     seats1.push(selectedIndex[i]);
+
+     }
+      console.log(seats1)
+     }
+
+
+
+
+
+
+
+
+
+
+
+    seat_container.addEventListener('click' ,(e)=>{
+
+      if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')){
+          if (click==1){
+          e.target.classList.toggle('selected');
+          }
+          else{alert("wait for loading")}
+          }
+
+     updateSelectedCount();
+
+    });
+
+
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+
+  const firebaseConfig = {
+    'apiKey': "AIzaSyAbBYgZUyVfdw-9Jyx7IREo1Wv82em_Hu4",
+    'authDomain': "fypars-660c5.firebaseapp.com",
+    'projectId': "fypars-660c5",
+    'storageBucket': "fypars-660c5.appspot.com",
+    'messagingSenderId': "810959590520",
+    'appId': "1:810959590520:web:0dbad49b86bf784e3d898d",
+  };
+
+  firebase.initializeApp({
+      projectId: 'fypars-660c5'
+    });
+
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  import{
+  getFirestore, doc,getDoc,setDoc,collection,addDoc,updateDoc,deleteDoc,deleteField}
+  from"https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"
+  //  const db1=firebase.firestore();
+   const db1= firebase.firestore();
+
+   const db=getFirestore();
+   var ref2 = doc(db,"SeatList",id);
+   const docsnap=await getDoc(ref2);
+
+   if(docsnap.data().seatNo0==1){ oseat.push(0)}
+   if(docsnap.data().seatNo1==1){ oseat.push(1)}
+   if(docsnap.data().seatNo2==1){ oseat.push(2)}
+   if(docsnap.data().seatNo3==1){ oseat.push(3)}
+   if(docsnap.data().seatNo4==1){ oseat.push(4)}
+   if(docsnap.data().seatNo5==1){ oseat.push(5)}
+   if(docsnap.data().seatNo6==1){ oseat.push(6)}
+   if(docsnap.data().seatNo7==1){ oseat.push(7)}
+   if(docsnap.data().seatNo8==1){ oseat.push(8)}
+   if(docsnap.data().seatNo9==1){ oseat.push(9)}
+   if(docsnap.data().seatNo10==1){ oseat.push(10)}
+   if(docsnap.data().seatNo11==1){ oseat.push(11)}
+   if(docsnap.data().seatNo12==1){ oseat.push(12)}
+   if(docsnap.data().seatNo13==1){ oseat.push(13)}
+   if(docsnap.data().seatNo14==1){ oseat.push(14)}
+   if(docsnap.data().seatNo15==1){ oseat.push(15)}
+   if(docsnap.data().seatNo16==1){ oseat.push(16)}
+   if(docsnap.data().seatNo17==1){ oseat.push(17)}
+   if(docsnap.data().seatNo18==1){ oseat.push(18)}
+   if(docsnap.data().seatNo19==1){ oseat.push(19)}
+   if(docsnap.data().seatNo20==1){ oseat.push(20)}
+   if(docsnap.data().seatNo21==1){ oseat.push(21)}
+   if(docsnap.data().seatNo22==1){ oseat.push(22)}
+   if(docsnap.data().seatNo23==1){ oseat.push(23)}
+   if(docsnap.data().seatNo24==1){ oseat.push(24)}
+   if(docsnap.data().seatNo25==1){ oseat.push(25)}
+   if(docsnap.data().seatNo26==1){ oseat.push(26)}
+   if(docsnap.data().seatNo27==1){ oseat.push(27)}
+   if(docsnap.data().seatNo28==1){ oseat.push(28)}
+   if(docsnap.data().seatNo29==1){ oseat.push(29)}
+   if(docsnap.data().seatNo30==1){ oseat.push(30)}
+   if(docsnap.data().seatNo31==1){ oseat.push(31)}
+   if(docsnap.data().seatNo32==1){ oseat.push(32)}
+   if(docsnap.data().seatNo33==1){ oseat.push(33)}
+   if(docsnap.data().seatNo34==1){ oseat.push(34)}
+   if(docsnap.data().seatNo35==1){ oseat.push(35)}
+   if(docsnap.data().seatNo36==1){ oseat.push(36)}
+   if(docsnap.data().seatNo37==1){ oseat.push(37)}
+   if(docsnap.data().seatNo38==1){ oseat.push(38)}
+   if(docsnap.data().seatNo39==1){ oseat.push(39)}
+   if(docsnap.data().seatNo40==1){ oseat.push(40)}
+   if(docsnap.data().seatNo41==1){ oseat.push(41)}
+   if(docsnap.data().seatNo42==1){ oseat.push(42)}
+   if(docsnap.data().seatNo43==1){ oseat.push(43)}
+   if(docsnap.data().seatNo44==1){ oseat.push(44)}
+   if(docsnap.data().seatNo45==1){ oseat.push(45)}
+   if(docsnap.data().seatNo46==1){ oseat.push(46)}
+   if(docsnap.data().seatNo47==1){ oseat.push(47)}
+   click=1;
+   async function price1(){
+     var ref5 =doc(db,"FlightSchedule",id);
+   const docsnap=await getDoc(ref5);
+   totalprice=seats1.length * docsnap.data().FlightSeatPrice;
+   document.getElementById("demo").innerHTML = "total price of Seat selected is RM"+seats1.length * docsnap.data().FlightSeatPrice;
+   }
+
+
+   occupiedSeats();
+
+   var ref2 =doc(db,"FlightSchedule",id);
+   async function AddDocument(){
+     let seat0=0,seat1=0,seat2=0,seat3=0,seat4=0,seat5=0,seat6=0,seat7=0,seat8=0,seat9=0;
+    let seat10=0,seat11=0,seat12=0,seat13=0,seat14=0,seat15=0,seat16=0,seat17=0,seat18=0,seat19=0;
+    let seat20=0,seat21=0,seat22=0,seat23=0,seat24=0,seat25=0,seat26=0,seat27=0,seat28=0,seat29=0;
+    let seat30=0,seat31=0,seat32=0,seat33=0,seat34=0,seat35=0,seat36=0,seat37=0,seat38=0,seat39=0;
+    let seat40=0,seat41=0,seat42=0,seat43=0,seat44=0,seat45=0,seat46=0,seat47=0;
+
+    console.log(seats1)
+   if(seats1.length==0){
+   alert("no seat selected");
+   }
+   else{
+   if (confirm("Confirm Booking?")){
+    var ref=doc(db,"SeatList",id);
+    for(let i=0;i<seats1.length;i++){
+
+    if (seats1[i]==0){ const docRef = await updateDoc( ref,{seatNo0:1 })}
+    if (seats1[i]==1){const docRef = await updateDoc( ref,{seatNo1:1 })}
+     if (seats1[i]==2){const docRef = await updateDoc( ref,{seatNo2:1 })}
+    if (seats1[i]==3){const docRef = await updateDoc( ref,{seatNo3:1 })}
+     if (seats1[i]==4){const docRef = await updateDoc( ref,{seatNo4:1})}
+    if (seats1[i]==5){const docRef = await updateDoc( ref,{seatNo5:1})}
+     if (seats1[i]==6){const docRef = await updateDoc( ref,{seatNo6:1})}
+    if (seats1[i]==7){const docRef = await updateDoc( ref,{seatNo7:1})}
+     if (seats1[i]==8){const docRef = await updateDoc( ref,{seatNo8:1})}
+    if (seats1[i]==9){const docRef = await updateDoc( ref,{seatNo9:1})}
+     if (seats1[i]==10){const docRef = await updateDoc( ref,{seatNo10:1 })}
+    if (seats1[i]==11){const docRef = await updateDoc( ref,{seatNo11:1 })}
+     if (seats1[i]==12){const docRef = await updateDoc( ref,{seatNo12:1})}
+    if (seats1[i]==13){const docRef = await updateDoc( ref,{seatNo13:1})}
+     if (seats1[i]==14){const docRef = await updateDoc( ref,{seatNo14:1 })}
+      if (seats1[i]==15){const docRef = await updateDoc( ref,{seatNo15:1})}
+       if (seats1[i]==16){const docRef = await updateDoc( ref,{seatNo16:1 })}
+        if (seats1[i]==17){const docRef = await updateDoc( ref,{seatNo17:1})}
+            if (seats1[i]==18){const docRef = await updateDoc( ref,{seatNo18:1})}
+                if (seats1[i]==19){const docRef = await updateDoc( ref,{seatNo19:1})}
+                    if (seats1[i]==20){const docRef = await updateDoc( ref,{seatNo20:1})}
+                        if (seats1[i]==21){const docRef = await updateDoc( ref,{seatNo21:1})}
+                            if (seats1[i]==22){const docRef = await updateDoc( ref,{seatNo22:1})}
+                              if (seats1[i]==23){const docRef = await updateDoc( ref,{seatNo23:1})}
+                                if (seats1[i]==24){const docRef = await updateDoc( ref,{seatNo24:1})}
+                                  if (seats1[i]==25){const docRef = await updateDoc( ref,{seatNo25:1})}
+                                    if (seats1[i]==26){const docRef = await updateDoc( ref,{seatNo26:1})}
+                                      if (seats1[i]==27){const docRef = await updateDoc( ref,{seatNo27:1})}
+                                        if (seats1[i]==28){const docRef = await updateDoc( ref,{seatNo28:1})}
+                                          if (seats1[i]==29){const docRef = await updateDoc( ref,{seatNo29:1})}
+                                            if (seats1[i]==30){const docRef = await updateDoc( ref,{seatNo30:1})}
+                                              if (seats1[i]==31){const docRef = await updateDoc( ref,{seatNo31:1})}
+                                              if (seats1[i]==32){const docRef = await updateDoc( ref,{seatNo32:1})}
+                                              if (seats1[i]==33){const docRef = await updateDoc( ref,{seatNo33:1})}
+                                              if (seats1[i]==34){const docRef = await updateDoc( ref,{seatNo34:1})}
+                                              if (seats1[i]==35){const docRef = await updateDoc( ref,{seatNo35:1})}
+                                              if (seats1[i]==36){const docRef = await updateDoc( ref,{seatNo36:1})}
+                                              if (seats1[i]==37){const docRef = await updateDoc( ref,{seatNo37:1})}
+                                              if (seats1[i]==38){const docRef = await updateDoc( ref,{seatNo38:1})}
+                                              if (seats1[i]==39){const docRef = await updateDoc( ref,{seatNo39:1})}
+                                              if (seats1[i]==40){const docRef = await updateDoc( ref,{seatNo40:1})}
+                                              if (seats1[i]==41){const docRef = await updateDoc( ref,{seatNo41:1})}
+                                              if (seats1[i]==42){const docRef = await updateDoc( ref,{seatNo42:1})}
+                                              if (seats1[i]==43){const docRef = await updateDoc( ref,{seatNo43:1})}
+                                              if (seats1[i]==44){const docRef = await updateDoc( ref,{seatNo44:1})}
+                                              if (seats1[i]==45){const docRef = await updateDoc( ref,{seatNo45:1})}
+                                              if (seats1[i]==46){const docRef = await updateDoc( ref,{seatNo46:1})}
+                                              if (seats1[i]==47){const docRef = await updateDoc( ref,{seatNo47:1})}
+
+
+
+}
+    alert("Successfully booked");
+
+    for(let i=0;i<seats1.length;i++){
+
+    if (seats1[i]==0){seat0=1}
+    if (seats1[i]==1){seat1=1}
+     if (seats1[i]==2){seat2=1}
+    if (seats1[i]==3){seat3=1}
+     if (seats1[i]==4){seat4=1}
+    if (seats1[i]==5){seat5=1}
+     if (seats1[i]==6){seat6=1}
+    if (seats1[i]==7){seat7=1}
+     if (seats1[i]==8){seat8=1}
+    if (seats1[i]==9){seat9=1}
+     if (seats1[i]==10){seat10=1}
+    if (seats1[i]==11){seat11=1}
+     if (seats1[i]==12){seat12=1}
+    if (seats1[i]==13){seat13=1}
+     if (seats1[i]==14){seat14=1}
+      if (seats1[i]==15){seat15=1}
+       if (seats1[i]==16){seat16=1}
+        if (seats1[i]==17){seat17=1}
+            if (seats1[i]==18){seat18=1}
+                if (seats1[i]==19){seat19=1}
+                    if (seats1[i]==20){seat20=1}
+                        if (seats1[i]==21){seat21=1}
+                            if (seats1[i]==22){seat22=1}
+                              if (seats1[i]==23){seat23=1}
+                                if (seats1[i]==24){seat24=1}
+                                  if (seats1[i]==25){seat25=1}
+                                    if (seats1[i]==26){seat26=1}
+                                      if (seats1[i]==27){seat22=1}
+                                        if (seats1[i]==28){seat28=1}
+                                          if (seats1[i]==29){seat29=1}
+                                            if (seats1[i]==30){seat30=1}
+                                              if (seats1[i]==31){seat31=1}
+                                              if (seats1[i]==32){seat32=1}
+                                              if (seats1[i]==33){seat33=1}
+                                              if (seats1[i]==34){seat34=1}
+                                              if (seats1[i]==35){seat35=1}
+                                              if (seats1[i]==36){seat36=1}
+                                              if (seats1[i]==37){seat37=1}
+                                              if (seats1[i]==38){seat38=1}
+                                              if (seats1[i]==39){seat39=1}
+                                              if (seats1[i]==40){seat40=1}
+                                              if (seats1[i]==41){seat41=1}
+                                              if (seats1[i]==42){seat42=1}
+                                              if (seats1[i]==43){seat43=1}
+                                              if (seats1[i]==44){seat44=1}
+                                              if (seats1[i]==45){seat45=1}
+                                              if (seats1[i]==46){seat46=1}
+                                              if (seats1[i]==47){seat47=1}
+
+}
+
+
+}
+
+// var docData = {
+//   FlightSeatPrice:totalprice,
+//   seatNo0:seat0, seatNo1:seat1, seatNo2:seat2, seatNo3:seat3, seatNo4:seat4, seatNo5:seat5, seatNo6:seat6, seatNo7:seat7, seatNo8:seat8,seatNo9:seat9,
+//        seatNo10:seat10, seatNo11:seat11, seatNo12:seat12, seatNo13:seat13, seatNo14:seat14, seatNo15:seat15, seatNo16:seat16, seatNo17:seat17, seatNo18:seat18,seatNo19:seat19,
+//        seatNo20:seat20, seatNo21:seat21, seatNo22:seat22, seatNo23:seat23, seatNo24:seat24, seatNo25:seat25, seatNo26:seat26, seatNo27:seat27, seatNo28:seat28,seatNo29:seat29,
+//         seatNo30:seat30, seatNo31:seat31, seatNo32:seat32, seatNo33:seat33, seatNo34:seat34, seatNo35:seat35, seatNo36:seat36, seatNo37:seat37, seatNo38:seat38,seatNo39:seat39,
+//          seatNo40:seat40, seatNo41:seat41, seatNo42:seat42, seatNo43:seat43, seatNo44:seat44, seatNo45:seat45, seatNo46:seat46, seatNo47:seat47,
+// };
+// console.log(email);
+// db1.doc(email).set({
+      // FlightSeatPrice:totalprice,
+      //  seatNo0:seat0, seatNo1:seat1, seatNo2:seat2, seatNo3:seat3, seatNo4:seat4, seatNo5:seat5, seatNo6:seat6, seatNo7:seat7, seatNo8:seat8,seatNo9:seat9,
+      //  seatNo10:seat10, seatNo11:seat11, seatNo12:seat12, seatNo13:seat13, seatNo14:seat14, seatNo15:seat15, seatNo16:seat16, seatNo17:seat17, seatNo18:seat18,seatNo19:seat19,
+      //  seatNo20:seat20, seatNo21:seat21, seatNo22:seat22, seatNo23:seat23, seatNo24:seat24, seatNo25:seat25, seatNo26:seat26, seatNo27:seat27, seatNo28:seat28,seatNo29:seat29,
+      //   seatNo30:seat30, seatNo31:seat31, seatNo32:seat32, seatNo33:seat33, seatNo34:seat34, seatNo35:seat35, seatNo36:seat36, seatNo37:seat37, seatNo38:seat38,seatNo39:seat39,
+      //    seatNo40:seat40, seatNo41:seat41, seatNo42:seat42, seatNo43:seat43, seatNo44:seat44, seatNo45:seat45, seatNo46:seat46, seatNo47:seat47,
+// });
+// db1.collection("Booking").doc(email).set(docData).then(() => {
+//     console.log("Document successfully written!");
+// });
+
+var ref3=collection(db,"OrderList");
+    const docRef = await addDoc(
+    ref3,{
+      id:"null",
+     "email":email,
+     "DepartureDate":DepartureDate,
+     "location":location,
+     "destination":destination,
+     "ArrivalDate":ArrivalDate,
+     FlightSeatPrice:totalprice,
+       seatNo0:seat0, seatNo1:seat1, seatNo2:seat2, seatNo3:seat3, seatNo4:seat4, seatNo5:seat5, seatNo6:seat6, seatNo7:seat7, seatNo8:seat8,seatNo9:seat9,
+       seatNo10:seat10, seatNo11:seat11, seatNo12:seat12, seatNo13:seat13, seatNo14:seat14, seatNo15:seat15, seatNo16:seat16, seatNo17:seat17, seatNo18:seat18,seatNo19:seat19,
+       seatNo20:seat20, seatNo21:seat21, seatNo22:seat22, seatNo23:seat23, seatNo24:seat24, seatNo25:seat25, seatNo26:seat26, seatNo27:seat27, seatNo28:seat28,seatNo29:seat29,
+        seatNo30:seat30, seatNo31:seat31, seatNo32:seat32, seatNo33:seat33, seatNo34:seat34, seatNo35:seat35, seatNo36:seat36, seatNo37:seat37, seatNo38:seat38,seatNo39:seat39,
+        seatNo40:seat40, seatNo41:seat41, seatNo42:seat42, seatNo43:seat43, seatNo44:seat44, seatNo45:seat45, seatNo46:seat46, seatNo47:seat47,
+
+
+
+    }
+
+   );
+console.log("U PRESSED")
+//  window.location='userhome';
+}
+
+
+}
+
+
+
+
+
+ submit.addEventListener("click",AddDocument);
+
+
+
+</script>
+<style>
+  .qs-datepicker {
+color: black;
+position: absolute;
+width: 250px;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-direction: column;
+    flex-direction: column;
+font-family: sans-serif;
+font-size: 14px;
+z-index: 9001;
+-webkit-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+border: 1px solid gray;
+border-radius: 4.22275px;
+overflow: hidden;
+background: white;
+box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.3);
+}
+.qs-datepicker * {
+box-sizing: border-box;
+}
+.qs-datepicker.qs-hidden {
+display: none;
+}
+.qs-datepicker .qs-overlay {
+position: absolute;
+top: 0;
+left: 0;
+background: rgba(0, 0, 0, 0.75);
+color: white;
+width: 100%;
+height: 100%;
+padding: .5em;
+z-index: 1;
+opacity: 1;
+transition: opacity 0.3s;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-direction: column;
+    flex-direction: column;
+-ms-flex-align: center;
+    align-items: center;
+}
+.qs-datepicker .qs-overlay.qs-hidden {
+opacity: 0;
+z-index: -1;
+}
+.qs-datepicker .qs-overlay .qs-close {
+-ms-flex-item-align: end;
+    align-self: flex-end;
+display: inline-table;
+padding: .5em;
+line-height: .77;
+cursor: pointer;
+position: absolute;
+}
+.qs-datepicker .qs-overlay .qs-overlay-year {
+display: block;
+border: none;
+background: transparent;
+border-bottom: 1px solid white;
+border-radius: 0;
+color: white;
+font-size: 14px;
+padding: .25em 0;
+margin: auto 0 .5em;
+width: calc(100% - 1em);
+}
+.qs-datepicker .qs-overlay .qs-overlay-year::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+.qs-datepicker .qs-overlay .qs-submit {
+border: 1px solid white;
+border-radius: 4.22275px;
+padding: .5em;
+margin: 0 auto auto;
+cursor: pointer;
+background: rgba(128, 128, 128, 0.4);
+}
+.qs-datepicker .qs-overlay .qs-submit.qs-disabled {
+color: gray;
+border-color: gray;
+cursor: not-allowed;
+}
+.qs-datepicker .qs-controls {
+width: 100%;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-pack: justify;
+    justify-content: space-between;
+-ms-flex-align: center;
+    align-items: center;
+-ms-flex-positive: 1;
+    flex-grow: 1;
+-ms-flex-negative: 0;
+    flex-shrink: 0;
+background: lightgray;
+filter: blur(0px);
+transition: filter 0.3s;
+}
+.qs-datepicker .qs-controls.qs-blur {
+filter: blur(5px);
+}
+.qs-datepicker .qs-arrow {
+height: 25px;
+width: 25px;
+position: relative;
+cursor: pointer;
+border-radius: 5px;
+transition: background .15s;
+}
+.qs-datepicker .qs-arrow:hover {
+background: rgba(0, 0, 0, 0.1);
+}
+.qs-datepicker .qs-arrow:hover.qs-left:after {
+border-right-color: black;
+}
+.qs-datepicker .qs-arrow:hover.qs-right:after {
+border-left-color: black;
+}
+.qs-datepicker .qs-arrow:after {
+content: '';
+border: 6.25px solid transparent;
+position: absolute;
+top: 50%;
+transition: border .2s;
+}
+.qs-datepicker .qs-arrow.qs-left:after {
+border-right-color: gray;
+right: 50%;
+transform: translate(25%, -50%);
+}
+.qs-datepicker .qs-arrow.qs-right:after {
+border-left-color: gray;
+left: 50%;
+transform: translate(-25%, -50%);
+}
+.qs-datepicker .qs-month-year {
+font-weight: bold;
+transition: border .2s;
+border-bottom: 1px solid transparent;
+cursor: pointer;
+}
+.qs-datepicker .qs-month-year:hover {
+border-bottom: 1px solid gray;
+}
+.qs-datepicker .qs-month-year:focus,
+.qs-datepicker .qs-month-year:active:focus {
+outline: none;
+}
+.qs-datepicker .qs-month {
+padding-right: .5ex;
+}
+.qs-datepicker .qs-year {
+padding-left: .5ex;
+}
+.qs-datepicker .qs-squares {
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+padding: 5px;
+filter: blur(0px);
+transition: filter 0.3s;
+}
+.qs-datepicker .qs-squares.qs-blur {
+filter: blur(5px);
+}
+.qs-datepicker .qs-square {
+width: 14.28571429%;
+height: 25px;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+    align-items: center;
+-ms-flex-pack: center;
+    justify-content: center;
+cursor: pointer;
+transition: background .1s;
+border-radius: 4.22275px;
+}
+.qs-datepicker .qs-square.qs-current {
+font-weight: bold;
+}
+.qs-datepicker .qs-square.qs-active {
+background: lightblue;
+}
+.qs-datepicker .qs-square.qs-disabled span {
+opacity: .2;
+}
+.qs-datepicker .qs-square.qs-empty {
+cursor: default;
+}
+.qs-datepicker .qs-square.qs-disabled {
+cursor: not-allowed;
+}
+.qs-datepicker .qs-square.qs-day {
+cursor: default;
+font-weight: bold;
+color: gray;
+}
+.qs-datepicker .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):hover {
+background: orange;
+}
+body {
+font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: 400;
+overflow-x: hidden;
+}
+
+a, button { transition: all 0.3s ease; }
+a:hover,
+a:focus {
+text-decoration: none;
+outline: none;
+}
+
+.tm-position-relative { position: relative; }
+.tm-flex-align-center { align-items: center; }
+.tm-fa-6x { font-size: 6em; }
+.tm-margin-b-0 { margin-bottom: 0; }
+.tm-margin-b-20 { margin-bottom: 20px; }
+.tm-p-4 { padding: 2rem!important; }
+.tm-color-white { color: white; }
+.tm-color-primary {	color: #ee5057; }
+.tm-bg-primary { background: #ee5057; }
+.tm-bg-gray { background: #F4F4F4; }
+.tm-bg-white { background: white; }
+.tm-bg-dark-blue { background: #1f3646; }
+
+.tm-bg-white-shadow {
+-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+}
+
+.tm-section-pad { padding: 30px 50px; }
+.tm-section-pad-2 { padding: 30px 40px; }
+.tm-article-pad { padding: 28px; }
+.tm-sidebar-pad { padding: 15px 20px; }
+.tm-sidebar-pad-2 { padding: 21px 20px; }
+.tm-pad { padding: 20px; }
+
+a.tm-color-primary:hover,
+a.tm-color-primary:active {
+color: #d53239;
+}
+
+.tm-font-light { font-weight: 300; }
+.tm-font-normal { font-weight: 400; }
+.tm-font-semibold { font-weight: 600; }
+
+p { 
+color: #898989; 
+line-height: 1.9;
+}
+
+.navbar { 
+width: 100%; 
+padding-top: 0;
+padding-bottom: 0;
+}
+.navbar-brand {
+font-size: 1.8rem;
+font-weight: 700;
+}
+.navbar a { color: black; }
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(238, 80, 87, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler { 
+border-color: rgb(238, 80, 87); 
+cursor: pointer;
+}
+
+.nav-item {
+background: transparent;
+/* border-left: 1px solid #ccc; */
+cursor: pointer;
+font-size: 0.8rem;
+font-weight: 300;
+  text-transform: uppercase;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+
+.nav-item:last-child { border-right: 1px solid #ccc; }
+
+.nav-link.active,
+.nav-link:hover {
+color: white;
+background: #ee5057;	
+}
+
+.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link { padding: 50px 35px; }
+
+.tm-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  z-index: 10000;
+  transition: all 0.2s ease-in-out;
+  height: 119px;
+  background: white;
+}
+
+.tm-top-bar.active {
+height: 79px;
+box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.tm-top-bar.active .navbar-expand-lg .navbar-nav .nav-link { padding: 30px 35px; }
+.tm-top-bar-bg { height: 119px; }
+.tm-section { min-height: 515px; }
+
+.tm-section-pad {
+padding-top: 80px;
+padding-bottom: 80px;
+}
+
+#tm-section-1 {	
+background-image: url('../img/bg-img-1.jpg');	
+height: 515px;
+}
+
+#tm-section-5 { background-image: url('../img/bg-img-2.jpg'); }
+
+#tm-section-6 {
+background-image: url('../img/bg-img-3.jpg');
+background-position: top center;
+padding-top: 120px;
+padding-bottom: 60px;
+}
+
+.tm-bg-img {
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+          justify-content: center
+}
+
+.qs-datepicker {
+font-family:  'Open Sans', Helvetica, Arial, sans-serif;
+font-size: 0.8rem;
+}
+
+.form-control {
+border-radius: 0;
+padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus {
+border-color: #ee5057;
+box-shadow: 0 0 0 0.2rem rgba(238,80,87,.25);
+}
+
+.btn-primary {
+background-color: #ee5057;
+border-color: #ee5057;
+border-radius: 0;
+cursor: pointer;
+font-size: 0.7rem;
+font-weight: 600;
+padding: 13px 30px;
+text-transform: uppercase;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+background-color: #d53239;
+border-color: #d53239;
+}
+
+.tm-search-form .tm-form-element { padding: 0 5px; }
+.tm-form-element { position: relative; }
+.tm-form-element:last-child { margin-right: 0; }
+
+.tm-form-element-icon {
+color: #ee5057;
+position: absolute;
+top: 10px;
+left: 15px;
+}
+
+.tm-form-element-icon-small {
+top: 16px;
+left: 18px;
+}
+
+select.tm-select.form-control:not([size]):not([multiple]) { height: 100%; }
+
+select:not([multiple]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+  padding: .5em;
+  padding-right: 1.5em
+}
+
+/* https://stackoverflow.com/questions/20163079/remove-select-arrow-on-ie */
+select.tm-select::-ms-expand { display: none; }
+
+.tm-select {
+  border-radius: 0;
+  color: #858789;
+}
+
+.tm-search-form .form-control {
+font-size: 0.8rem;	
+padding: 0.75rem 0.75rem 0.75rem 45px;
+}
+
+.tm-search-form .tm-form-element { width: 33.3333%; }
+.tm-search-form .tm-form-element-2 { width: 25%; }
+.tm-search-form-row { width: 900px; }
+.tm-btn-search { width: 100%; }
+
+/* https://css-tricks.com/creating-non-rectangular-headers/ */
+.tm-section-down-arrow {
+position: absolute;
+top: -1px;
+width: 100%;
+height: 100px;
+}
+
+.tm-pt-5 { padding-top: 150px; }
+.tm-pb-4 { padding-bottom: 100px; }
+
+.tm-section-2 {
+background: #ee5057;
+padding-top: 50px;
+position: relative;
+}
+
+.tm-section-title {
+color: white;
+font-size: 3rem;
+}
+
+.tm-section-title-2 {
+font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.tm-section-subtitle {
+font-size: 1rem;
+font-weight: 300;
+margin-bottom: 25px;
+}
+
+.tm-section-subtitle-2 { font-size: 1.8rem; }
+
+.tm-btn-white-bordered {
+display: inline-block;
+padding: 10px 25px;
+border: 2px solid white;
+background: transparent;
+text-transform: uppercase;
+}
+
+.tm-btn-white-bordered:hover,
+.tm-btn-white-bordered:focus {
+color: #ee5057;
+background: white;	
+}
+
+.slick-dots { bottom: -35px; }
+
+.tm-article {
+padding: 40px;
+transition: all 0.3s ease;
+}
+
+.tm-article:hover {
+-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+transform: scale(1.1);
+}
+
+.tm-article-title-1 {
+font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.tm-article-title-2 { 
+font-size: 1rem;
+font-weight: 700;
+letter-spacing: 1px;
+}
+
+.tm-article-title-3 { font-size: 1.1rem; }
+
+.tm-btn-primary {
+display: block;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.75rem;
+}
+
+.tm-sidebar-title {
+font-size: 1.3rem;
+margin-bottom: 5px;
+}
+
+.tm-sidebar-item-title {
+font-size: 1.2rem;
+letter-spacing: 1px;
+margin-bottom: 0;	
+}
+
+.tm-recommended-item .tm-bg-gray { transition: all 0.3s ease; }
+.tm-recommended-item:hover .tm-bg-gray { background: #DDD; }
+
+.tm-recommended-item h4 { 
+color: black; 
+transition: all 0.3s ease;
+}
+
+.tm-recommended-item:hover h4 { color: #ee5057; }
+.tm-media { align-items: stretch; }
+
+.tm-media,
+.tm-media-1 {
+margin-bottom: 15px;
+}
+
+.tm-media:last-child,
+.tm-media-1:last-child {
+margin-bottom: 0;
+}
+
+.tm-media-body,
+.tm-media-body-1 {
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+        align-items: center;
+padding-left: 25px;
+}
+
+.tm-media-body-v-center {
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+          justify-content: center;
+      align-items: flex-start;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 515px;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-bg-video { 
+position: relative; 
+padding-top: 515px;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.tm-btn-pause { display:none; }
+
+.tm-btn-play,
+.tm-btn-pause {
+color: rgba(255,255,255,0.5);
+cursor: pointer;
+}
+
+.tm-media-container { max-width: 772px; }
+
+#google-map {
+  height: 479px;
+  width: 100%;    
+}
+
+.contact-form .form-control {
+background-color: #F4F4F4;
+border: none;
+font-size: 0.8rem;
+font-weight: 300;
+}
+
+.clearfix:after {
+ content: " "; /* Older browser do not support empty content */
+ visibility: hidden;
+ display: block;
+ height: 0;
+ clear: both;
+}
+
+@media screen and (max-width: 991px) {
+.tm-top-bar.active, .tm-top-bar, .tm-top-bar-bg { height: 65px; }
+.tm-top-bar.active .navbar-expand-lg .navbar-nav .nav-link,
+.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 12px 15px;
+}
+#mainNav {
+  width: 180px;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+  box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+}
+
+.tm-search-form .tm-form-element { 
+  width: 33%; 
+  max-width: 215px;
+}
+
+.tm-search-form-row { width: 98%; max-width: 900px; }
+.tm-recommended-container { margin-top: 30px; }
+
+video {
+  top: 25%;
+  left: 0;
+    min-width: 50%;
+    min-height: 50%;
+    width: auto;
+    height: auto;	 
+}
+}
+
+@media screen and (max-width: 767px) {
+.tm-search-form .tm-form-element {
+  width: 50%;
+  max-width: 235px;
+}
+
+#tm-section-1 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.tm-media-container,
+.tm-media-title-container {
+    max-width: 320px;
+    margin-right: auto;
+}
+
+.tm-media-title-container {
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.tm-media-1 {
+  flex-direction: column;
+  max-width: 280px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tm-media-body-1 {
+  padding-left: 0;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
+.tm-bg-video { padding-top: 255px; }
+.overlay { height: 255px; }
+}
+
+@media screen and (max-width: 767px) and (min-width: 524px) {
+.tm-search-form .tm-form-element-100 { 
+  width: 100%; 
+  max-width: none;
+}
+
+.tm-search-form .tm-form-element-50 { width: 50%; }
+}
+
+@media screen and (max-width: 524px) {
+.tm-section-pad-2 { padding: 20px 25px; }
+
+.tm-search-form .tm-form-element {
+  width: 100%;
+  max-width: 100%;
+}
+
+.tm-fx-col-xs { flex-direction: column; }
+.tm-section-pad { padding: 25px 15px; }
+#tm-section-1 { height: 600px; }
+}
+
+/* IE Fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+   /* IE10+ CSS styles go here */
+   .ie-h-align-center-fix {
+     margin-left: 0;
+     margin-right: 0;
+   }
+
+   .ie-10-ml-auto { float: right; }
+   .tm-media-body, .tm-media-body > * { width: 100%; }
+   .tm-media-body-1, .tm-media-body-1 > * { width: 100%; }
+   .tm-media-1 > * { flex: 1 1 auto; }
+}
+
+@media all and (max-width: 1199px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+.ie-container-width-fix { width: 960px; }
+}
+
+@media all and (max-width: 600px) {
+.ie-container-width-fix-2 { width: 100%; }
+}
+
+@media all and (max-width: 560px)  and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+.ie-container-width-fix {
+  max-width: 530px;
+  width: 100%;
+}	
+}
+
+</style>
+<style>
+  .msger {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 867px;
+  margin: 25px 10px;
+  height: calc(100% - 50px);
+  border: var(--border);
+  border-radius: 5px;
+  background: var(--msger-bg);
+  box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+}
+.msger-header {
+    font-size: medium;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+    border-bottom: var(--border);
+    background: #ee5057;
+    color: #ffffff;
+    }
+.msger-chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+.msger-chat::-webkit-scrollbar {
+  width: 6px;
+}
+.msger-chat::-webkit-scrollbar-track {
+  background: #ddd;
+}
+.msger-chat::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+}
+.msg {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.msg-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  background: #ddd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.msg-bubble {
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 15px;
+  background: var(--left-msg-bg);
+}
+.msg-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.msg-info-name {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.msg-info-time {
+  font-size: 0.85em;
+}
+.left-msg .msg-bubble {
+  border-bottom-left-radius: 0;
+}
+.right-msg {
+  flex-direction: row-reverse;
+
+}
+.right-msg .msg-bubble {
+  background: var(--right-msg-bg);
+  color:#f8f8ff;
+  border-bottom-right-radius: 10;
+  word-wrap: break-word
+}
+.right-msg .msg-img {
+  margin: 0 0 0 10px;
+}
+.msger-inputarea {
+    display: flex;
+    padding: 10px;
+    border-top: var(--border);
+    background: rgb(238, 238, 238);
+    background-color: #ee5057;
+    }
+.msger-inputarea * {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+}
+.msger-input {
+  flex: 1;
+  background: #ddd;
+}
+.msger-send-btn {
+  margin-left: 10px;
+  background: rgb(144,238,144);
+  color: 	#708090;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.23s;
+}
+.msger-send-btn:hover {
+  background: rgb(127,255,0);
+}
+.msger-chat {
+  background-color: #fcfcfe;
+  background-image: url("https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/07/06/07/united-airlines.jpg?quality=75&width=990&auto=webp&crop=982:726")
+}
+.container-seat{
+
+  perspective:1000px;
+  
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width:50vh;
+  height: 85vh;
+  font-family: 'Lato', 'sans-serif';
+  margin-top: 30px;
+}
+.seat{
+
+  background-color: #444451;
+  height: 24px;
+  width: 30px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 10px;
+}
+
+.row {
+ align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
+.seat.selected {
+  background-color: #6feaf6;
+}
+
+.seat.occupied {
+  background-color: #d53239;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+</style>

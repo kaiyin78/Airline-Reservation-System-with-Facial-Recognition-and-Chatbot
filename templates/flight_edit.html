@@ -1,0 +1,209 @@
+
+<style>
+    body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form1 {
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 700px;
+  padding: 20px;
+  width: 320px;
+}
+
+.title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #15172b;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+#display_image{
+width:200px;
+height:200px;
+border:1px solid black;
+background-position:center;
+background-size:cover
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Schedule</title>
+</head>
+<body>
+<form class="form1" action="#" method="POST">
+    <a href="/flight_management" style="color:black; background-color:white; font-weight: bold;" class="button">Back</a>
+    {% with messages= get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+    <p style=" color: red; font-family: 'Raleway',sans-serif; font-size: 10px; font-weight: 300; line-height: 30px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">{{msg}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="title">Edit flight</div>
+    <div class="subtitle">Please fill up the detail.</div>
+
+    <div class="input-container ic1">
+        <input id="FlightID" name="FlightID" class="input" type="text" value="{{flight_id}}" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="FlightID" class="placeholder">Flight ID</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input id="FromLocation" name="FromLocation" class="input" value="{{location}}" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="FromLocation" class="placeholder">From Location</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input id="FlightDestination" name="FlightDestination" class="input" value="{{destination}}" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="FlightDestination" class="placeholder">Flight Destination</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input type="date" class="input" id="FlightArrivalDate" value="{{arrival_date}}" name="FlightArrivalDate" required>
+        <div class="cut cut-short"></div>
+        <label for="FlightArrivalDate" class="placeholder">Flight Arrival Date</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input type="date" class="input" id="FlightDepartureDate" value="{{departure_date}}" name="FlightDepartureDate" required>
+        <div class="cut cut-short"></div>
+        <label for="FlightDepartureDate" class="placeholder">Flight Departure Date</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input type="time" class="input" id="FlightArrivalTime" value="{{arrival_time}}" name="FlightArrivalTime" required>
+        <div class="cut cut-short"></div>
+        <label for="FlightArrivalTime" class="placeholder">Flight Arrival Time</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input type="time" class="input" id="FlightDepartureTime" value="{{departure_time}}" name="FlightDepartureTime" required>
+        <div class="cut cut-short"></div>
+        <label for="FlightDepartureTime" class="placeholder">Flight Departure Time</label>
+    </div>
+
+    <div class="input-container ic1">
+        <input id="FlightSeatPrice" name="FlightSeatPrice" class="input" value="{{price}}" type="text" placeholder=" " required/>
+        <div> class="cut cut-short"></div>
+        <label for="FlightSeatPrice" class="placeholder">Flight Seat Price</label>
+
+        <input type="submit" value="submit" class="submit">
+    </div>
+</form>
+
+
+</body>
+</html>
+

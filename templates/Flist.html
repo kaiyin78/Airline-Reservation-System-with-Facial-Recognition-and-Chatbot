@@ -1,0 +1,181 @@
+<style xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml"
+	   xmlns:text-align="http://www.w3.org/1999/xhtml">
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+  background-color:#1c1259;
+}
+
+h1 {
+  font-size:3em;
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #fcd307;
+}
+
+h2 {
+  font-size:1em;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.blue { color: #185875; }
+.yellow { color: white; }
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #fcd307;
+}
+.table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: black;
+    font-variant: normal;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+      display: table;
+  padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+	  padding-bottom: 1%;
+	  padding-top: 1%;
+        padding-left:1%;
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.container th {
+	  background-color: #ee4266;
+	  border-width: thick!important;
+      border-color: black!important
+}
+
+.container td:first-child { color: #d5daeb; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 100px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Airline Timetable </title>
+</head>
+<body>
+<a href="/" style="color:black; background-color:white; font-weight: bold;" class="button">Back</a>
+<a href="/home" style="color:black; background-color:white; font-weight: bold;" class="button">ChatBot</a>
+<h1><span  class="grey"></span>Search results <span class="blue"></span></h1>
+<a href="/time_table" style="color:white; background-color:grey;">Return to Flight Schedule</a>
+
+
+<table class="container">
+	<thead>
+		<tr>
+			<th><h1>Ticket ID</h1></th>
+			<th><h1>FlightID</h1></th>
+			<th><h1>Departure Date</h1></th>
+			<th><h1>Departure time</h1></th>
+			<th><h1>Arrival Date</h1></th>
+			<th><h1>Arrival Time</h1></th>
+			<th><h1>From</h1></th>
+			<th><h1>Destination</h1></th>
+			<th><h1>Price(RM)</h1></th>
+
+		</tr>
+	</thead>
+
+	<tbody>
+	{% for row in data1 %}
+
+   <tr id="somerow">
+
+	   {% for cell in row %}
+	   <td>{{cell}}</td>
+
+         {% endfor %}
+
+	   	<td><button class="btn_booking">Booking</button></td>
+            </tr>
+
+	{% endfor %}
+
+	</tbody>
+</table>
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+

@@ -1,0 +1,125 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "help",
+      "patterns": ["help me", "help"],
+      "responses": ["Type booking for booking flight"]
+    },
+    {
+      "tag": "items",
+      "patterns": [
+        "Which do you have?",
+        "What kind of tickets are sold there?",
+        "What do you sell?",
+        "Flight time table",
+        "Ticket"
+
+      ],
+      "responses": [
+        "We have have many cheap flight to choose."
+
+      ]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "how much",
+        "how to pay",
+        "way to pay",
+        "Do you take credit cards?",
+        "Do you accept Mastercard?",
+        "Can I pay with Paypal?",
+        "Are you cash only?"
+      ],
+      "responses": [
+        "We accept VISA, Mastercard and Paypal",
+        "We accept most major credit cards, and Paypal"
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ],
+      "responses": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+    },
+    {
+      "tag": "order",
+      "patterns": [
+        "Booking History",
+        "I want view order history",
+        "Order History",
+        "Booking History",
+        "Cancel Booking"
+
+      ],
+      "responses": [
+        "Let see the Order history"
+      ]
+    },
+    {
+      "tag": "seat",
+      "patterns": [
+        "booking seat",
+        "Flight seat map",
+        "Which ticket do you have?",
+        "What kinds of flight are there?",
+        "What do you sell?",
+        "Flight time table",
+        "booking ticket",
+        "book",
+        "buy ticket"
+
+      ],
+      "responses": [
+       "Let look through the map"
+      ]
+    },
+    {
+      "tag": "admin",
+      "patterns": [
+        "tpk-admin1234"
+
+      ],
+      "responses": [
+       "welcome"
+      ]
+    }
+
+  ]
+}

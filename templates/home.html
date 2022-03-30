@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Airline Reservation System</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" rel="stylesheet"/>
+
+
+</head>
+
+    <body>
+        <header>
+            <div class="topbar">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8 text-sm">
+                    <div class="site-info">
+                      <a href="#"  style="color: white;"><span class="mai-call text-primary"></span> </a>
+                      <span class="divider"  style="color: white;">|</span>
+                      <a href="#" style="color: white;"><span class="mai-mail text-primary"></span></a>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 text-right text-sm">
+                    <div class="social-mini-button">
+                      <a href="#"><span class="mai-logo-facebook-f"></span></a>
+                      <a href="#"><span class="mai-logo-twitter"></span></a>
+                      <a href="#"><span class="mai-logo-dribbble"></span></a>
+                      <a href="#"><span class="mai-logo-instagram"></span></a>
+                    </div>
+                  </div>
+                </div> <!-- .row -->
+              </div> <!-- .container -->
+            </div> <!-- .topbar -->
+        
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+              <div class="container">
+                <a class="navbar-brand" href="#"><span  style="color: #d53239;">Airline</span>Reservation</a>
+        
+                <!-- <form action="#">
+                  <div class="input-group input-navbar">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+                    </div>
+                  </div>
+                </form>
+         -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupport">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="explore">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="chatbot">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="btn btn-primary ml-lg-3" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ml-lg-3" href="register">Register</a>
+                      </li>
+                  </ul>
+                </div> <!-- .navbar-collapse -->
+              </div> <!-- .container -->
+            </nav>
+          </header>
+        <div class="tm-main-content" id="top">
+           
+            <div class="tm-section tm-bg-img" style="background-image: url('https://media.nomadicmatt.com/2021/flighthub3.jpg'); background-repeat: no-repeat;" id="tm-section-1">
+                <div class="tm-bg-white ie-container-width-fix-2" >
+                    <div class="container ie-h-align-center-fix">
+                        <div class="row">
+                            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                                <form class="tm-search-form tm-section-pad-2" method="POST" action="{{ url_for('submitForm') }}">
+                                    <div class="form-row tm-search-form-row">
+                                        <div class="form-group tm-form-element tm-form-element-2">
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <!-- <input name="check-in" style="padding-bottom: 25px; " type="date" class="form-control" id="inputCheckIn" placeholder="Depart Date"> -->
+                                            <input name="check-in" style="padding-bottom:25px; padding-left:50px; width:215px; border-color:#D3D3D3;" placeholder="Depart" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="inputCheckIn" class="form-control"  />
+
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-">
+                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                                            <!-- <input name="check-out" style="padding-bottom: 25px; " type="date" class="form-control" id="inputCheckOut" placeholder="Return Date"> -->
+                                            <input name="check-out" style="padding-bottom:25px; padding-left:50px; width:215px; border-color:#D3D3D3;" placeholder="Return" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="inputCheckOut" class="form-control"  />
+                                        </div>
+                                    </div>
+                                    <div class="form-row tm-search-form-row">
+                                        <div class="form-group tm-form-element tm-form-element-2" >
+                                            
+                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                                            <!-- <input name="city" style="padding-bottom: 25px; " type="text" class="form-control" id="inputCity" placeholder="From:"> -->
+                                            <select id="country1" class="input" name="select1" id="lang1" style="padding-bottom:15px; padding-left:50px; width:215px; border-color:#D3D3D3;"> 
+                                              <option value="" disabled selected>Select From Location</option>
+                                              {% for FromLocation in country %}
+                                              <option value="{{FromLocation}}">{{FromLocation}}</option>
+                                              {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-2">
+                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                                            <select id="country" class="input" name="select2" id="lang" style=" padding-bottom: 15px; padding-left: 50px; width: 215px; border-color: #D3D3D3	;  ">
+                                              <option value="" disabled selected>Select Destination </option>
+                                              {% for FlightDestination in country %}
+                                              <option value="{{FlightDestination}}">{{FlightDestination}}</option>
+                                                      {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group tm-form-element tm-form-element-2">
+                                          <button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
+                                      </div>
+                                        </div>
+                                    <div class="form-row tm-search-form-row">
+                                   
+                                        <!-- <div class="form-group tm-form-element tm-form-element-2">                                            
+                                            <select name="children" class="form-control tm-select" id="children">
+                                                <option value="">Children</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                            <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
+                                        </div> -->
+                                    
+                                       
+                                      </div>
+                                      <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+                                       
+                                   
+                                      </div>
+                                </form>
+                            </div>                        
+                        </div>      
+                    </div>
+                </div>                  
+            </div>
+            
+            <div class="tm-section-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h2 class="tm-section-title">We are here to help you?</h2>
+                            <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
+                            <a href="#" class="tm-color-white tm-btn-white-bordered">Subscribe Newletters</a>
+                        </div>                
+                    </div>
+                </div>        
+            </div>
+            
+            <div class="tm-section tm-position-relative">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
+                    <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>                   
+                </svg> 
+                <div class="container tm-pt-5 tm-pb-4">
+                    <div class="row text-center">
+                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
+                            <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
+                            <h3 class="tm-color-primary tm-article-title-1">Pellentesque accumsan arcu nec dolor tempus</h3>
+                            <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
+                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
+                        </article>
+                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
+                            <i class="fa tm-fa-6x fa-plane tm-color-primary tm-margin-b-20"></i>
+                            <h3 class="tm-color-primary tm-article-title-1">Duis scelerisque metus vel felis porttitor</h3>
+                            <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
+                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>                            
+                        </article>
+                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                           
+                            <i class="fa tm-fa-6x fa-life-saver tm-color-primary tm-margin-b-20"></i>
+                            <h3 class="tm-color-primary tm-article-title-1">Etiam aliquam arcu at mauris consectetur</h3>
+                            <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
+                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>                           
+                        </article>
+                    </div>        
+                </div>
+            </div>
+          
+            
+          
+      
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>               <!-- http://kenwheeler.github.io/slick/ -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<style>
+    .qs-datepicker {
+  color: black;
+  position: absolute;
+  width: 250px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  font-family: sans-serif;
+  font-size: 14px;
+  z-index: 9001;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid gray;
+  border-radius: 4.22275px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.3);
+}
+.qs-datepicker * {
+  box-sizing: border-box;
+}
+.qs-datepicker.qs-hidden {
+  display: none;
+}
+.qs-datepicker .qs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: .5em;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.qs-datepicker .qs-overlay.qs-hidden {
+  opacity: 0;
+  z-index: -1;
+}
+.qs-datepicker .qs-overlay .qs-close {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: inline-table;
+  padding: .5em;
+  line-height: .77;
+  cursor: pointer;
+  position: absolute;
+}
+.qs-datepicker .qs-overlay .qs-overlay-year {
+  display: block;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  color: white;
+  font-size: 14px;
+  padding: .25em 0;
+  margin: auto 0 .5em;
+  width: calc(100% - 1em);
+}
+.qs-datepicker .qs-overlay .qs-overlay-year::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.qs-datepicker .qs-overlay .qs-submit {
+  border: 1px solid white;
+  border-radius: 4.22275px;
+  padding: .5em;
+  margin: 0 auto auto;
+  cursor: pointer;
+  background: rgba(128, 128, 128, 0.4);
+}
+.qs-datepicker .qs-overlay .qs-submit.qs-disabled {
+  color: gray;
+  border-color: gray;
+  cursor: not-allowed;
+}
+.qs-datepicker .qs-controls {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background: lightgray;
+  filter: blur(0px);
+  transition: filter 0.3s;
+}
+.qs-datepicker .qs-controls.qs-blur {
+  filter: blur(5px);
+}
+.qs-datepicker .qs-arrow {
+  height: 25px;
+  width: 25px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background .15s;
+}
+.qs-datepicker .qs-arrow:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.qs-datepicker .qs-arrow:hover.qs-left:after {
+  border-right-color: black;
+}
+.qs-datepicker .qs-arrow:hover.qs-right:after {
+  border-left-color: black;
+}
+.qs-datepicker .qs-arrow:after {
+  content: '';
+  border: 6.25px solid transparent;
+  position: absolute;
+  top: 50%;
+  transition: border .2s;
+}
+.qs-datepicker .qs-arrow.qs-left:after {
+  border-right-color: gray;
+  right: 50%;
+  transform: translate(25%, -50%);
+}
+.qs-datepicker .qs-arrow.qs-right:after {
+  border-left-color: gray;
+  left: 50%;
+  transform: translate(-25%, -50%);
+}
+.qs-datepicker .qs-month-year {
+  font-weight: bold;
+  transition: border .2s;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+.qs-datepicker .qs-month-year:hover {
+  border-bottom: 1px solid gray;
+}
+.qs-datepicker .qs-month-year:focus,
+.qs-datepicker .qs-month-year:active:focus {
+  outline: none;
+}
+.qs-datepicker .qs-month {
+  padding-right: .5ex;
+}
+.qs-datepicker .qs-year {
+  padding-left: .5ex;
+}
+.qs-datepicker .qs-squares {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px;
+  filter: blur(0px);
+  transition: filter 0.3s;
+}
+.qs-datepicker .qs-squares.qs-blur {
+  filter: blur(5px);
+}
+.qs-datepicker .qs-square {
+  width: 14.28571429%;
+  height: 25px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  cursor: pointer;
+  transition: background .1s;
+  border-radius: 4.22275px;
+}
+.qs-datepicker .qs-square.qs-current {
+  font-weight: bold;
+}
+.qs-datepicker .qs-square.qs-active {
+  background: lightblue;
+}
+.qs-datepicker .qs-square.qs-disabled span {
+  opacity: .2;
+}
+.qs-datepicker .qs-square.qs-empty {
+  cursor: default;
+}
+.qs-datepicker .qs-square.qs-disabled {
+  cursor: not-allowed;
+}
+.qs-datepicker .qs-square.qs-day {
+  cursor: default;
+  font-weight: bold;
+  color: gray;
+}
+.qs-datepicker .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):hover {
+  background: orange;
+}
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	overflow-x: hidden;
+}
+
+a, button { transition: all 0.3s ease; }
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+.tm-position-relative { position: relative; }
+.tm-flex-align-center { align-items: center; }
+.tm-fa-6x { font-size: 6em; }
+.tm-margin-b-0 { margin-bottom: 0; }
+.tm-margin-b-20 { margin-bottom: 20px; }
+.tm-p-4 { padding: 2rem!important; }
+.tm-color-white { color: white; }
+.tm-color-primary {	color: #ee5057; }
+.tm-bg-primary { background: #ee5057; }
+.tm-bg-gray { background: #F4F4F4; }
+.tm-bg-white { background: white; }
+.tm-bg-dark-blue { background: #1f3646; }
+
+.tm-bg-white-shadow {
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+}
+
+.tm-section-pad { padding: 30px 50px; }
+.tm-section-pad-2 { padding: 30px 40px; }
+.tm-article-pad { padding: 28px; }
+.tm-sidebar-pad { padding: 15px 20px; }
+.tm-sidebar-pad-2 { padding: 21px 20px; }
+.tm-pad { padding: 20px; }
+
+a.tm-color-primary:hover,
+a.tm-color-primary:active {
+	color: #d53239;
+}
+
+.tm-font-light { font-weight: 300; }
+.tm-font-normal { font-weight: 400; }
+.tm-font-semibold { font-weight: 600; }
+
+p { 
+	color: #898989; 
+	line-height: 1.9;
+}
+
+.navbar { 
+	width: 100%; 
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.navbar-brand {
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+.navbar a { color: black; }
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(238, 80, 87, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler { 
+	border-color: rgb(238, 80, 87); 
+	cursor: pointer;
+}
+
+.nav-item {
+	background: transparent;
+	/* border-left: 1px solid #ccc; */
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: 300;
+    text-transform: uppercase;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+.nav-item:last-child { border-right: 1px solid #ccc; }
+
+.nav-link.active,
+.nav-link:hover {
+	color: white;
+	background: #ee5057;	
+}
+
+.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link { padding: 50px 35px; }
+
+.tm-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 10000;
+    transition: all 0.2s ease-in-out;
+    height: 119px;
+    background: white;
+}
+
+.tm-top-bar.active {
+	height: 79px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.tm-top-bar.active .navbar-expand-lg .navbar-nav .nav-link { padding: 30px 35px; }
+.tm-top-bar-bg { height: 119px; }
+.tm-section { min-height: 515px; }
+
+.tm-section-pad {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+#tm-section-1 {	
+	background-image: url('../img/bg-img-1.jpg');	
+	height: 515px;
+}
+
+#tm-section-5 { background-image: url('../img/bg-img-2.jpg'); }
+
+#tm-section-6 {
+	background-image: url('../img/bg-img-3.jpg');
+	background-position: top center;
+	padding-top: 120px;
+	padding-bottom: 60px;
+}
+
+.tm-bg-img {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center
+}
+
+.qs-datepicker {
+	font-family:  'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 0.8rem;
+}
+
+.form-control {
+	border-radius: 0;
+	padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus {
+	border-color: #ee5057;
+	box-shadow: 0 0 0 0.2rem rgba(238,80,87,.25);
+}
+
+.btn-primary {
+	background-color: #ee5057;
+	border-color: #ee5057;
+	border-radius: 0;
+	cursor: pointer;
+	font-size: 0.7rem;
+	font-weight: 600;
+	padding: 13px 30px;
+	text-transform: uppercase;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+	background-color: #d53239;
+	border-color: #d53239;
+}
+
+.tm-search-form .tm-form-element { padding: 0 5px; }
+.tm-form-element { position: relative; }
+.tm-form-element:last-child { margin-right: 0; }
+
+.tm-form-element-icon {
+	color: #ee5057;
+	position: absolute;
+	top: 10px;
+	left: 15px;
+}
+
+.tm-form-element-icon-small {
+	top: 16px;
+	left: 18px;
+}
+
+select.tm-select.form-control:not([size]):not([multiple]) { height: 100%; }
+
+select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+    padding: .5em;
+    padding-right: 1.5em
+}
+
+/* https://stackoverflow.com/questions/20163079/remove-select-arrow-on-ie */
+select.tm-select::-ms-expand { display: none; }
+
+.tm-select {
+    border-radius: 0;
+    color: #858789;
+}
+
+.tm-search-form .form-control {
+	font-size: 0.8rem;	
+	padding: 0.75rem 0.75rem 0.75rem 45px;
+}
+
+.tm-search-form .tm-form-element { width: 33.3333%; }
+.tm-search-form .tm-form-element-2 { width: 25%; }
+.tm-search-form-row { width: 900px; }
+.tm-btn-search { width: 100%; }
+
+/* https://css-tricks.com/creating-non-rectangular-headers/ */
+.tm-section-down-arrow {
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: 100px;
+}
+
+.tm-pt-5 { padding-top: 150px; }
+.tm-pb-4 { padding-bottom: 100px; }
+
+.tm-section-2 {
+	background: #ee5057;
+	padding-top: 50px;
+	position: relative;
+}
+
+.tm-section-title {
+	color: white;
+	font-size: 3rem;
+}
+
+.tm-section-title-2 {
+	font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.tm-section-subtitle {
+	font-size: 1rem;
+	font-weight: 300;
+	margin-bottom: 25px;
+}
+
+.tm-section-subtitle-2 { font-size: 1.8rem; }
+
+.tm-btn-white-bordered {
+	display: inline-block;
+	padding: 10px 25px;
+	border: 2px solid white;
+	background: transparent;
+	text-transform: uppercase;
+}
+
+.tm-btn-white-bordered:hover,
+.tm-btn-white-bordered:focus {
+	color: #ee5057;
+	background: white;	
+}
+
+.slick-dots { bottom: -35px; }
+
+.tm-article {
+	padding: 40px;
+	transition: all 0.3s ease;
+}
+
+.tm-article:hover {
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	transform: scale(1.1);
+}
+
+.tm-article-title-1 {
+	font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.tm-article-title-2 { 
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.tm-article-title-3 { font-size: 1.1rem; }
+
+.tm-btn-primary {
+	display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.75rem;
+}
+
+.tm-sidebar-title {
+	font-size: 1.3rem;
+	margin-bottom: 5px;
+}
+
+.tm-sidebar-item-title {
+	font-size: 1.2rem;
+	letter-spacing: 1px;
+	margin-bottom: 0;	
+}
+
+.tm-recommended-item .tm-bg-gray { transition: all 0.3s ease; }
+.tm-recommended-item:hover .tm-bg-gray { background: #DDD; }
+
+.tm-recommended-item h4 { 
+	color: black; 
+	transition: all 0.3s ease;
+}
+
+.tm-recommended-item:hover h4 { color: #ee5057; }
+.tm-media { align-items: stretch; }
+
+.tm-media,
+.tm-media-1 {
+	margin-bottom: 15px;
+}
+
+.tm-media:last-child,
+.tm-media-1:last-child {
+	margin-bottom: 0;
+}
+
+.tm-media-body,
+.tm-media-body-1 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	        align-items: center;
+	padding-left: 25px;
+}
+
+.tm-media-body-v-center {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    		align-items: flex-start;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 515px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tm-bg-video { 
+	position: relative; 
+	padding-top: 515px;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.tm-btn-pause { display:none; }
+
+.tm-btn-play,
+.tm-btn-pause {
+	color: rgba(255,255,255,0.5);
+	cursor: pointer;
+}
+
+.tm-media-container { max-width: 772px; }
+
+#google-map {
+    height: 479px;
+    width: 100%;    
+}
+
+.contact-form .form-control {
+	background-color: #F4F4F4;
+	border: none;
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+@media screen and (max-width: 991px) {
+	.tm-top-bar.active, .tm-top-bar, .tm-top-bar-bg { height: 65px; }
+	.tm-top-bar.active .navbar-expand-lg .navbar-nav .nav-link,
+	.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link {
+	    padding: 12px 15px;
+	}
+	#mainNav {
+		width: 180px;
+	    position: absolute;
+	    top: 60px;
+	    right: 15px;
+
+		-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+		-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+		box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	}
+
+	.tm-search-form .tm-form-element { 
+		width: 33%; 
+		max-width: 215px;
+	}
+
+	.tm-search-form-row { width: 98%; max-width: 900px; }
+	.tm-recommended-container { margin-top: 30px; }
+
+	video {
+		top: 25%;
+		left: 0;
+	    min-width: 50%;
+	    min-height: 50%;
+	    width: auto;
+	    height: auto;	 
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.tm-search-form .tm-form-element {
+		width: 50%;
+		max-width: 235px;
+	}
+
+	#tm-section-1 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.tm-media-container,
+	.tm-media-title-container {
+	    max-width: 320px;
+	    margin-right: auto;
+	}
+
+	.tm-media-title-container {
+		margin-left: auto;
+		margin-bottom: 20px;
+	}
+
+	.tm-media-1 {
+		flex-direction: column;
+		max-width: 280px;
+		margin-bottom: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.tm-media-body-1 {
+		padding-left: 0;
+		margin-left: 0;
+		margin-top: 20px;
+	}
+
+	.tm-bg-video { padding-top: 255px; }
+	.overlay { height: 255px; }
+}
+
+@media screen and (max-width: 767px) and (min-width: 524px) {
+	.tm-search-form .tm-form-element-100 { 
+		width: 100%; 
+		max-width: none;
+	}
+
+	.tm-search-form .tm-form-element-50 { width: 50%; }
+}
+
+@media screen and (max-width: 524px) {
+	.tm-section-pad-2 { padding: 20px 25px; }
+
+	.tm-search-form .tm-form-element {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.tm-fx-col-xs { flex-direction: column; }
+	.tm-section-pad { padding: 25px 15px; }
+	#tm-section-1 { height: 600px; }
+}
+
+/* IE Fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     /* IE10+ CSS styles go here */
+     .ie-h-align-center-fix {
+     	margin-left: 0;
+     	margin-right: 0;
+     }
+
+     .ie-10-ml-auto { float: right; }
+     .tm-media-body, .tm-media-body > * { width: 100%; }
+     .tm-media-body-1, .tm-media-body-1 > * { width: 100%; }
+     .tm-media-1 > * { flex: 1 1 auto; }
+}
+
+@media all and (max-width: 1199px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.ie-container-width-fix { width: 960px; }
+}
+
+@media all and (max-width: 600px) {
+	.ie-container-width-fix-2 { width: 100%; }
+}
+
+@media all and (max-width: 560px)  and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.ie-container-width-fix {
+		max-width: 530px;
+		width: 100%;
+	}	
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> 
