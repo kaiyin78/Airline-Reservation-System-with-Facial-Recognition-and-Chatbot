@@ -31,8 +31,8 @@ import joblib
 
 
 # cred = credentials.Certificate("serviceAccountKey.json")
-cred = credentials.Certificate("fypars-660c5-firebase-adminsdk-lpst1-222746bb64.json")
-firebase_admin.initialize_app(cred, {'storageBucket': 'gs://fypars-660c5.appspot.com/'})
+cred = credentials.Certificate("*")
+firebase_admin.initialize_app(cred, {'storageBucket': '*'})
 
 
 # db.collection('user').add({'name': 'John', 'age': 40})
@@ -50,11 +50,11 @@ app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'kaiyin3014@gmail.com'
+app.config['MAIL_USERNAME'] = '*'
 # put password for the gmail acount provided above
-app.config['MAIL_PASSWORD'] = '301429604'
+app.config['MAIL_PASSWORD'] = '*'
 #you need to put your reall gmail account for testing here
-app.config['MAIL_DEFAULT_SENDER'] = 'kaiyin3014@gmail.com'
+app.config['MAIL_DEFAULT_SENDER'] = '*'
 Flight_ref = db.collection('FlightSchedule')
 Seat_ref = db.collection('FlightSeat')
 Seat_ref2 = db.collection('ecoseats').document()
